@@ -1,0 +1,33 @@
+g++ --std=c++0x -g -c main.cc
+In file included from tac.h:1,
+                 from main.cc:47:
+ast.h: In member function ‘virtual int ast::size()’:
+ast.h:113:22: warning: no return statement in function returning non-void [-Wreturn-type]
+  113 |  virtual int size() {};
+      |                      ^
+g++ --std=c++0x -g -c user-options.cc
+yacc -dv yyacc.y
+g++ -c y.tab.c
+In file included from yyacc.y:4:
+ast.h: In member function ‘virtual int ast::size()’:
+ast.h:113:22: warning: no return statement in function returning non-void [-Wreturn-type]
+  113 |  virtual int size() {};
+      |                      ^
+yyacc.y: At global scope:
+yyacc.y:25:7: error: expected unqualified-id before ‘nullptr’
+   25 |  ast* nullptr;
+      |       ^~~~~~~
+y.tab.c: In function ‘int yyparse()’:
+y.tab.c:2050:20: warning: ISO C++ forbids converting a string constant to ‘char*’ [-Wwrite-strings]
+ 2050 |       yyerror (YY_("syntax error"));
+      |                    ^~~~~~~~~~~~~~
+y.tab.c:326:22: note: in definition of macro ‘YY_’
+  326 | #  define YY_(Msgid) Msgid
+      |                      ^~~~~
+y.tab.c:2194:16: warning: ISO C++ forbids converting a string constant to ‘char*’ [-Wwrite-strings]
+ 2194 |   yyerror (YY_("memory exhausted"));
+      |                ^~~~~~~~~~~~~~~~~~
+y.tab.c:326:22: note: in definition of macro ‘YY_’
+  326 | #  define YY_(Msgid) Msgid
+      |                      ^~~~~
+make: *** [Makefile:12: y.tab.o] Error 1

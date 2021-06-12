@@ -1,0 +1,62 @@
+yacc -dv parser.y
+g++ --std=c++0x -g -c y.tab.c
+lex scanner.l
+g++ --std=c++0x -g -c lex.yy.c
+scanner.l: In function ‘int yylex()’:
+scanner.l:16:18: warning: ISO C++ forbids converting a string constant to ‘char*’ [-Wwrite-strings]
+   16 |      storetokens("INTEGER", yytext, yylineno);
+      |                  ^~~~~~~~~
+scanner.l:23:18: warning: ISO C++ forbids converting a string constant to ‘char*’ [-Wwrite-strings]
+   23 |      storetokens("FLOAT", yytext, yylineno);
+      |                  ^~~~~~~
+scanner.l:30:18: warning: ISO C++ forbids converting a string constant to ‘char*’ [-Wwrite-strings]
+   30 |      storetokens("STRING", yytext, yylineno);
+      |                  ^~~~~~~~
+scanner.l:37:18: warning: ISO C++ forbids converting a string constant to ‘char*’ [-Wwrite-strings]
+   37 |      storetokens("BOOL", yytext, yylineno);
+      |                  ^~~~~~
+scanner.l:46:25: warning: ISO C++ forbids converting a string constant to ‘char*’ [-Wwrite-strings]
+   46 |             storetokens("WRITE", yytext, yylineno);
+      |                         ^~~~~~~
+scanner.l:53:25: warning: ISO C++ forbids converting a string constant to ‘char*’ [-Wwrite-strings]
+   53 |             storetokens("READ", yytext, yylineno);
+      |                         ^~~~~~
+scanner.l:60:18: warning: ISO C++ forbids converting a string constant to ‘char*’ [-Wwrite-strings]
+   60 |      storetokens("VOID", yytext, yylineno);
+      |                  ^~~~~~
+scanner.l:67:19: warning: ISO C++ forbids converting a string constant to ‘char*’ [-Wwrite-strings]
+   67 |       storetokens("FNUM", yytext, yylineno);
+      |                   ^~~~~~
+scanner.l:74:19: warning: ISO C++ forbids converting a string constant to ‘char*’ [-Wwrite-strings]
+   74 |       storetokens("NUM", yytext, yylineno);
+      |                   ^~~~~
+scanner.l:82:18: warning: ISO C++ forbids converting a string constant to ‘char*’ [-Wwrite-strings]
+   82 |      storetokens("NAME", yytext, yylineno);
+      |                  ^~~~~~
+scanner.l:90:18: warning: ISO C++ forbids converting a string constant to ‘char*’ [-Wwrite-strings]
+   90 |      storetokens("PUNCTUATION", yytext, yylineno);
+      |                  ^~~~~~~~~~~~~
+scanner.l:97:18: warning: ISO C++ forbids converting a string constant to ‘char*’ [-Wwrite-strings]
+   97 |      storetokens("DELIMITERS", yytext, yylineno);
+      |                  ^~~~~~~~~~~~
+scanner.l:105:18: warning: ISO C++ forbids converting a string constant to ‘char*’ [-Wwrite-strings]
+  105 |      storetokens("ASSIGN_OP", yytext, yylineno);
+      |                  ^~~~~~~~~~~
+scanner.l:112:18: warning: ISO C++ forbids converting a string constant to ‘char*’ [-Wwrite-strings]
+  112 |      storetokens("STR_CONST", yytext, yylineno);
+      |                  ^~~~~~~~~~~
+scanner.l:125:18: warning: ISO C++ forbids converting a string constant to ‘char*’ [-Wwrite-strings]
+  125 |      storetokens("PLUS", yytext, yylineno);
+      |                  ^~~~~~
+scanner.l:130:18: warning: ISO C++ forbids converting a string constant to ‘char*’ [-Wwrite-strings]
+  130 |      storetokens("MINUS", yytext, yylineno);
+      |                  ^~~~~~~
+scanner.l:135:18: warning: ISO C++ forbids converting a string constant to ‘char*’ [-Wwrite-strings]
+  135 |      storetokens("MULT", yytext, yylineno);
+      |                  ^~~~~~
+scanner.l:140:18: warning: ISO C++ forbids converting a string constant to ‘char*’ [-Wwrite-strings]
+  140 |      storetokens("DIV", yytext, yylineno);
+      |                  ^~~~~
+g++ --std=c++0x -g -c main.cc
+g++ --std=c++0x -g -c user-options.cc
+g++ --std=c++0x -o sclp lex.yy.o y.tab.o main.o user-options.o -ly -ll

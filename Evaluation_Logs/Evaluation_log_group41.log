@@ -1,0 +1,44 @@
+bison -b parse -dv  sclp.y
+flex -l --yylineno -o scan.c sclp.l
+g++ --std=c++0x  -g -c scan.c
+g++ --std=c++0x  -g -c  parse.tab.c
+parse.tab.c: In function ‘int yyparse()’:
+parse.tab.c:1931:20: warning: ISO C++ forbids converting a string constant to ‘char*’ [-Wwrite-strings]
+ 1931 |       yyerror (YY_("syntax error"));
+      |                    ^~~~~~~~~~~~~~
+parse.tab.c:323:22: note: in definition of macro ‘YY_’
+  323 | #  define YY_(Msgid) Msgid
+      |                      ^~~~~
+parse.tab.c:2075:16: warning: ISO C++ forbids converting a string constant to ‘char*’ [-Wwrite-strings]
+ 2075 |   yyerror (YY_("memory exhausted"));
+      |                ^~~~~~~~~~~~~~~~~~
+parse.tab.c:323:22: note: in definition of macro ‘YY_’
+  323 | #  define YY_(Msgid) Msgid
+      |                      ^~~~~
+In file included from sclp.y:8:
+ast.hh: In instantiation of ‘void Number<T>::print_node() [with T = int]’:
+ast.hh:162:7:   required from here
+ast.hh:169:23: warning: format ‘%f’ expects argument of type ‘double’, but argument 3 has type ‘int’ [-Wformat=]
+  169 |    fprintf(yyout_ast, "Num : %0.2f<%s>",this->val,node_type.c_str());
+      |                       ^~~~~~~~~~~~~~~~~ ~~~~~~~~~
+      |                                               |
+      |                                               int
+g++ --std=c++0x  -g -c main.cc
+main.cc: In function ‘int main(int, char**)’:
+main.cc:76:93: warning: format not a string literal and no format arguments [-Wformat-security]
+   76 |   fprintf(stderr, ("sclp error: File: "+ file_name +" Cannot open the input file\n").c_str());
+      |                                                                                             ^
+g++ --std=c++0x  -g -c user-options.cc
+g++ --std=c++0x  -g -c ast.cc
+g++ --std=c++0x  -g -c tac.cc
+g++ --std=c++0x  scan.o parse.tab.o main.o user-options.o ast.o tac.o -o sclp -ly 
+cs316:Error
+cs316:Error
+cs316:Error
+cs316:Error
+cs316:Error
+cs316:Error
+cs316:Error
+cs316:Error: File contains some feature of language level L4. The current implementation supports levels L1 and L2.
+cs316:Error
+cs316:Error return type must be void

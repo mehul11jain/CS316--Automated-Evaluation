@@ -1,0 +1,55 @@
+yacc -dv parser.y
+g++ -c y.tab.c
+lex scaner.l
+g++ -c lex.yy.c
+g++ --std=c++0x main.cc user-options.cc ast.cc procedure.cc program.cc symbol-table.cc tac.cc -o sclp -ly -ll
+ast.cc: In member function ‘virtual Tac* Ast::get_tac()’:
+ast.cc:34:1: warning: no return statement in function returning non-void [-Wreturn-type]
+   34 | }
+      | ^
+ast.cc: In member function ‘virtual Symbol_Table_Entry& Ast::get_symbol_entry()’:
+ast.cc:37:1: warning: no return statement in function returning non-void [-Wreturn-type]
+   37 | }
+      | ^
+ast.cc: In member function ‘virtual Tac* Assignment_Ast::get_tac()’:
+ast.cc:98:1: warning: no return statement in function returning non-void [-Wreturn-type]
+   98 | }
+      | ^
+ast.cc: In member function ‘virtual Tac* Write_Ast::get_tac()’:
+ast.cc:248:1: warning: no return statement in function returning non-void [-Wreturn-type]
+  248 | }
+      | ^
+ast.cc: In member function ‘virtual Tac* Return_Ast::get_tac()’:
+ast.cc:542:1: warning: no return statement in function returning non-void [-Wreturn-type]
+  542 | }
+      | ^
+symbol-table.cc: In member function ‘Symbol_Table_Entry& Symbol_Table::get_symbol_table_entry(std::string)’:
+symbol-table.cc:103:1: warning: control reaches end of non-void function [-Wreturn-type]
+  103 | }
+      | ^
+tac.cc: In member function ‘virtual std::string Tac::rvalue()’:
+tac.cc:14:1: warning: no return statement in function returning non-void [-Wreturn-type]
+   14 | }
+      | ^
+tac.cc: In member function ‘virtual std::string Read_Tac::rvalue()’:
+tac.cc:25:1: warning: no return statement in function returning non-void [-Wreturn-type]
+   25 | }
+      | ^
+tac.cc: In member function ‘virtual std::string Write_Tac::rvalue()’:
+tac.cc:37:1: warning: no return statement in function returning non-void [-Wreturn-type]
+   37 | }
+      | ^
+tac.cc: In member function ‘virtual std::string Assignment_Tac::rvalue()’:
+tac.cc:86:1: warning: no return statement in function returning non-void [-Wreturn-type]
+   86 | }
+      | ^
+cs316:Error Illegal Character
+cs316:Error syntax error 6
+cs316:Error syntax error 6
+cs316:Error Illegal Character
+cs316:Error syntax error 5
+cs316:Error syntax error 6
+cs316:Error syntax error 6
+cs316:Error syntax error 5
+cs316:Error syntax error 5
+cs316:Error no error 1

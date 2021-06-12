@@ -1,0 +1,65 @@
+python3 preproc.py exp
+yacc -dv exp-processed.y
+exp-processed.y:53.33-38: warning: POSIX Yacc does not support %empty [-Wyacc]
+   53 | global_declarations	:	%empty
+      |                                 ^~~~~~
+exp-processed.y:114.33-38: warning: POSIX Yacc does not support %empty [-Wyacc]
+  114 | main_internals		:	%empty
+      |                                 ^~~~~~
+g++ --std=c++11 -c y.tab.c
+In file included from exp-processed.y:2:
+config.hh: In member function ‘virtual tac_wrapper WriteAstNode::construct_tac()’:
+config.hh:382:2: warning: control reaches end of non-void function [-Wreturn-type]
+  382 |  }
+      |  ^
+config.hh: In member function ‘SymEntry Program::getSymbol(const string&)’:
+config.hh:154:2: warning: control reaches end of non-void function [-Wreturn-type]
+  154 |  }
+      |  ^
+config.hh: In member function ‘virtual tac_wrapper ExprAstNode::construct_tac()’:
+config.hh:545:2: warning: control reaches end of non-void function [-Wreturn-type]
+  545 |  }
+      |  ^
+config.hh: In member function ‘virtual tac_wrapper CompAstNode::construct_tac()’:
+config.hh:682:2: warning: control reaches end of non-void function [-Wreturn-type]
+  682 |  }
+      |  ^
+config.hh: In member function ‘virtual tac_wrapper BoolOperatorAstNode::construct_tac()’:
+config.hh:309:2: warning: control reaches end of non-void function [-Wreturn-type]
+  309 |  }
+      |  ^
+lex exp.l
+g++ --std=c++11 -c lex.yy.c
+g++ --std=c++11 -c main.cc
+g++ --std=c++11 -c user-options.cc
+g++ --std=c++11 -c config.cc
+g++ --std=c++11 -c tac.cc
+g++ --std=c++11 -o sclp lex.yy.o y.tab.o main.o user-options.o tac.o config.o -ly -ll
+terminate called after throwing an instance of 'std::out_of_range'
+  what():  stoi
+cs316:Error File:./Error/test1.c, Line: 6, Next Token: INTEGER, Lexeme: "#"
+            Description: Illegal character 
+syntax error
+cs316:Error File: ./Error/test2.c, Line: 6, Next Token: , Lexeme: "0"
+            Description: Cannot parse the input program
+syntax error
+cs316:Error File: ./Error/test3.c, Line: 6, Next Token: , Lexeme: "int"
+            Description: Cannot parse the input program
+cs316:Error File:./Error/test4.c, Line: 7, Next Token: NAME, Lexeme: "%"
+            Description: Illegal character 
+syntax error
+cs316:Error File: ./Error/test5.c, Line: 5, Next Token: , Lexeme: "+"
+            Description: Cannot parse the input program
+syntax error
+cs316:Error File: ./Error/test6.c, Line: 6, Next Token: , Lexeme: ";"
+            Description: Cannot parse the input program
+syntax error
+cs316:Error File: ./Error/test7.c, Line: 6, Next Token: , Lexeme: "="
+            Description: Cannot parse the input program
+syntax error
+cs316:Error File: ./Error/test8.c, Line: 1, Next Token: , Lexeme: "{"
+            Description: Cannot parse the input program
+syntax error
+cs316:Error File: ./Error/test9.c, Line: 5, Next Token: , Lexeme: "}"
+            Description: Cannot parse the input program
+cs316:Error L5 feature, not implemented in L1,L2 or L3

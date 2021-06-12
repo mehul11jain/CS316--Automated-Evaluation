@@ -1,0 +1,93 @@
+yacc -dv parser.y
+parser.y:54.13-15: warning: POSIX yacc reserves %type to nonterminals [-Wyacc]
+   54 | %type <num> NUM
+      |             ^~~
+parser.y:55.19-22: warning: POSIX yacc reserves %type to nonterminals [-Wyacc]
+   55 | %type <float_num> FNUM
+      |                   ^~~~
+parser.y:56.14-17: warning: POSIX yacc reserves %type to nonterminals [-Wyacc]
+   56 | %type <name> NAME
+      |              ^~~~
+parser.y:58.13-24: warning: POSIX yacc reserves %type to nonterminals [-Wyacc]
+   58 | %type <str> STRING_CONST
+      |             ^~~~~~~~~~~~
+g++ --std=c++11 -c y.tab.c
+y.tab.c: In function ‘int yyparse()’:
+y.tab.c:2299:20: warning: ISO C++ forbids converting a string constant to ‘char*’ [-Wwrite-strings]
+ 2299 |       yyerror (YY_("syntax error"));
+      |                    ^~~~~~~~~~~~~~
+y.tab.c:335:22: note: in definition of macro ‘YY_’
+  335 | #  define YY_(Msgid) Msgid
+      |                      ^~~~~
+y.tab.c:2443:16: warning: ISO C++ forbids converting a string constant to ‘char*’ [-Wwrite-strings]
+ 2443 |   yyerror (YY_("memory exhausted"));
+      |                ^~~~~~~~~~~~~~~~~~
+y.tab.c:335:22: note: in definition of macro ‘YY_’
+  335 | #  define YY_(Msgid) Msgid
+      |                      ^~~~~
+lex scanner.l
+g++ -std=c++0x -c lex.yy.c
+g++ -std=c++11 -c main.cpp
+g++ -std=c++0x -c user-options.hh user-options.cc
+g++ -std=c++11 -c ast.hh ast.cc 
+ast.cc: In member function ‘virtual Opd_Tac* Assignment_Ast::opd_tac()’:
+ast.cc:83:37: warning: no return statement in function returning non-void [-Wreturn-type]
+   83 | Opd_Tac* Assignment_Ast:: opd_tac(){}
+      |                                     ^
+ast.cc: In member function ‘virtual Stmt_Tac* Name_Ast::stmt_tac()’:
+ast.cc:104:33: warning: no return statement in function returning non-void [-Wreturn-type]
+  104 | Stmt_Tac* Name_Ast:: stmt_tac(){}
+      |                                 ^
+ast.cc: In member function ‘virtual Stmt_Tac* String_Ast::stmt_tac()’:
+ast.cc:119:35: warning: no return statement in function returning non-void [-Wreturn-type]
+  119 | Stmt_Tac* String_Ast:: stmt_tac(){}
+      |                                   ^
+ast.cc: In member function ‘virtual Stmt_Tac* Num_Ast::stmt_tac()’:
+ast.cc:136:32: warning: no return statement in function returning non-void [-Wreturn-type]
+  136 | Stmt_Tac* Num_Ast:: stmt_tac(){}
+      |                                ^
+ast.cc: In member function ‘virtual Stmt_Tac* Fnum_Ast::stmt_tac()’:
+ast.cc:152:33: warning: no return statement in function returning non-void [-Wreturn-type]
+  152 | Stmt_Tac* Fnum_Ast:: stmt_tac(){}
+      |                                 ^
+ast.cc: In member function ‘virtual Stmt_Tac* Arithmetic_Ast::stmt_tac()’:
+ast.cc:240:39: warning: no return statement in function returning non-void [-Wreturn-type]
+  240 | Stmt_Tac* Arithmetic_Ast:: stmt_tac(){}
+      |                                       ^
+ast.cc: In member function ‘virtual Opd_Tac* Read_Ast::opd_tac()’:
+ast.cc:275:31: warning: no return statement in function returning non-void [-Wreturn-type]
+  275 | Opd_Tac* Read_Ast:: opd_tac(){}
+      |                               ^
+ast.cc: In member function ‘virtual Opd_Tac* Write_Ast::opd_tac()’:
+ast.cc:308:32: warning: no return statement in function returning non-void [-Wreturn-type]
+  308 | Opd_Tac* Write_Ast:: opd_tac(){}
+      |                                ^
+ast.cc: In member function ‘virtual Stmt_Tac* Cond_Ast::stmt_tac()’:
+ast.cc:427:33: warning: no return statement in function returning non-void [-Wreturn-type]
+  427 | Stmt_Tac* Cond_Ast:: stmt_tac(){}
+      |                                 ^
+ast.cc: In member function ‘virtual Stmt_Tac* Ter_Ast::stmt_tac()’:
+ast.cc:487:32: warning: no return statement in function returning non-void [-Wreturn-type]
+  487 | Stmt_Tac* Ter_Ast:: stmt_tac(){}
+      |                                ^
+ast.cc: In member function ‘std::string Program::get_data_type(std::string)’:
+ast.cc:601:1: warning: control reaches end of non-void function [-Wreturn-type]
+  601 | }
+      | ^
+g++ -std=c++11 -c tac.hh tac.cc 
+g++ --std=c++11 -o sclp lex.yy.o y.tab.o  ast.o tac.o user-options.o main.o -ly -ll
+cs316:Error syntax error 
+      Description: Cannot parse the input program 
+cs316:Error syntax error 
+      Description: Cannot parse the input program 
+cs316:Error syntax error 
+      Description: Cannot parse the input program 
+cs316:Error syntax error 
+      Description: Cannot parse the input program 
+cs316:Error syntax error 
+      Description: Cannot parse the input program 
+cs316:Error syntax error 
+      Description: Cannot parse the input program 
+cs316:Error syntax error 
+      Description: Cannot parse the input program 
+cs316:Error current implementation supports only level L1, L2, L3 fetures

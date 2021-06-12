@@ -1,0 +1,61 @@
+yacc -dv parser.y
+parser.y:86.22-24: warning: POSIX yacc reserves %type to nonterminals [-Wyacc]
+   86 | %type<name> variable INT VOID BOOL FLOAT STRING STR_CONST NAME
+      |                      ^~~
+parser.y:86.26-29: warning: POSIX yacc reserves %type to nonterminals [-Wyacc]
+   86 | %type<name> variable INT VOID BOOL FLOAT STRING STR_CONST NAME
+      |                          ^~~~
+parser.y:86.31-34: warning: POSIX yacc reserves %type to nonterminals [-Wyacc]
+   86 | %type<name> variable INT VOID BOOL FLOAT STRING STR_CONST NAME
+      |                               ^~~~
+parser.y:86.36-40: warning: POSIX yacc reserves %type to nonterminals [-Wyacc]
+   86 | %type<name> variable INT VOID BOOL FLOAT STRING STR_CONST NAME
+      |                                    ^~~~~
+parser.y:86.42-47: warning: POSIX yacc reserves %type to nonterminals [-Wyacc]
+   86 | %type<name> variable INT VOID BOOL FLOAT STRING STR_CONST NAME
+      |                                          ^~~~~~
+parser.y:86.49-57: warning: POSIX yacc reserves %type to nonterminals [-Wyacc]
+   86 | %type<name> variable INT VOID BOOL FLOAT STRING STR_CONST NAME
+      |                                                 ^~~~~~~~~
+parser.y:86.59-62: warning: POSIX yacc reserves %type to nonterminals [-Wyacc]
+   86 | %type<name> variable INT VOID BOOL FLOAT STRING STR_CONST NAME
+      |                                                           ^~~~
+parser.y:87.45-50: warning: POSIX yacc reserves %type to nonterminals [-Wyacc]
+   87 | %type<node> expression assignment_statement UMINUS
+      |                                             ^~~~~~
+parser.y:91.12-14: warning: POSIX yacc reserves %type to nonterminals [-Wyacc]
+   91 | %type<num> NUM
+      |            ^~~
+parser.y:92.13-16: warning: POSIX yacc reserves %type to nonterminals [-Wyacc]
+   92 | %type<fnum> FNUM
+      |             ^~~~
+g++ --std=c++0x -c y.tab.c
+y.tab.c: In function ‘int yyparse()’:
+y.tab.c:2651:20: warning: ISO C++ forbids converting a string constant to ‘char*’ [-Wwrite-strings]
+ 2651 |       yyerror (YY_("syntax error"));
+      |                    ^~~~~~~~~~~~~~
+y.tab.c:367:22: note: in definition of macro ‘YY_’
+  367 | #  define YY_(Msgid) Msgid
+      |                      ^~~~~
+y.tab.c:2795:16: warning: ISO C++ forbids converting a string constant to ‘char*’ [-Wwrite-strings]
+ 2795 |   yyerror (YY_("memory exhausted"));
+      |                ^~~~~~~~~~~~~~~~~~
+y.tab.c:367:22: note: in definition of macro ‘YY_’
+  367 | #  define YY_(Msgid) Msgid
+      |                      ^~~~~
+lex scanner.l
+g++ --std=c++0x -c lex.yy.c
+g++ --std=c++0x -c main.cc
+g++ --std=c++0x -c user-options.cc
+g++ --std=c++0x -c ast.hh ast.cc
+g++ --std=c++0x -c tac.hh tac.cc
+g++ --std=c++0x -o sclp lex.yy.o y.tab.o main.o user-options.o ast.o tac.o -ly -ll
+cs316:Error: Invalid token
+cs316:Error:Syntax Error
+cs316:Error:Syntax Error
+cs316:Error: Invalid token
+cs316:Error:Syntax Error
+cs316:Error:Syntax Error
+cs316:Error:Syntax Error
+cs316:Error:Syntax Error
+cs316:Error main must have type void

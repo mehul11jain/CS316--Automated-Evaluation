@@ -1,0 +1,103 @@
+lex sclp.l
+yacc yacc.y -d
+yacc.y:40.14-17: warning: POSIX yacc reserves %type to nonterminals [-Wyacc]
+   40 | %type <Sval> NAME
+      |              ^~~~
+yacc.y:41.14-17: warning: POSIX yacc reserves %type to nonterminals [-Wyacc]
+   41 | %type <Sval> READ PRINT
+      |              ^~~~
+yacc.y:41.19-23: warning: POSIX yacc reserves %type to nonterminals [-Wyacc]
+   41 | %type <Sval> READ PRINT
+      |                   ^~~~~
+yacc.y:42.14-16: warning: POSIX yacc reserves %type to nonterminals [-Wyacc]
+   42 | %type <Sval> INT FLOAT VOID STRING BOOL
+      |              ^~~
+yacc.y:42.18-22: warning: POSIX yacc reserves %type to nonterminals [-Wyacc]
+   42 | %type <Sval> INT FLOAT VOID STRING BOOL
+      |                  ^~~~~
+yacc.y:42.24-27: warning: POSIX yacc reserves %type to nonterminals [-Wyacc]
+   42 | %type <Sval> INT FLOAT VOID STRING BOOL
+      |                        ^~~~
+yacc.y:42.29-34: warning: POSIX yacc reserves %type to nonterminals [-Wyacc]
+   42 | %type <Sval> INT FLOAT VOID STRING BOOL
+      |                             ^~~~~~
+yacc.y:42.36-39: warning: POSIX yacc reserves %type to nonterminals [-Wyacc]
+   42 | %type <Sval> INT FLOAT VOID STRING BOOL
+      |                                    ^~~~
+yacc.y:43.14-16: warning: POSIX yacc reserves %type to nonterminals [-Wyacc]
+   43 | %type <Sval> NUM FNUM STR_CONST
+      |              ^~~
+yacc.y:43.18-21: warning: POSIX yacc reserves %type to nonterminals [-Wyacc]
+   43 | %type <Sval> NUM FNUM STR_CONST
+      |                  ^~~~
+yacc.y:43.23-31: warning: POSIX yacc reserves %type to nonterminals [-Wyacc]
+   43 | %type <Sval> NUM FNUM STR_CONST
+      |                       ^~~~~~~~~
+yacc.y:44.14-24: warning: POSIX yacc reserves %type to nonterminals [-Wyacc]
+   44 | %type <Sval> PUNCTUATION DELIMITERS
+      |              ^~~~~~~~~~~
+yacc.y:44.26-35: warning: POSIX yacc reserves %type to nonterminals [-Wyacc]
+   44 | %type <Sval> PUNCTUATION DELIMITERS
+      |                          ^~~~~~~~~~
+yacc.y:45.14-22: warning: POSIX yacc reserves %type to nonterminals [-Wyacc]
+   45 | %type <Sval> ASSIGN_OP MULT DIV PLUS MINUS
+      |              ^~~~~~~~~
+yacc.y:45.24-27: warning: POSIX yacc reserves %type to nonterminals [-Wyacc]
+   45 | %type <Sval> ASSIGN_OP MULT DIV PLUS MINUS
+      |                        ^~~~
+yacc.y:45.29-31: warning: POSIX yacc reserves %type to nonterminals [-Wyacc]
+   45 | %type <Sval> ASSIGN_OP MULT DIV PLUS MINUS
+      |                             ^~~
+yacc.y:45.33-36: warning: POSIX yacc reserves %type to nonterminals [-Wyacc]
+   45 | %type <Sval> ASSIGN_OP MULT DIV PLUS MINUS
+      |                                 ^~~~
+yacc.y:45.38-42: warning: POSIX yacc reserves %type to nonterminals [-Wyacc]
+   45 | %type <Sval> ASSIGN_OP MULT DIV PLUS MINUS
+      |                                      ^~~~~
+yacc.y:46.14-31: warning: POSIX yacc reserves %type to nonterminals [-Wyacc]
+   46 | %type <Sval> GREATER_THAN_EQUAL LESS_THAN_EQUAL GREATER_THAN LESS_THAN
+      |              ^~~~~~~~~~~~~~~~~~
+yacc.y:46.33-47: warning: POSIX yacc reserves %type to nonterminals [-Wyacc]
+   46 | %type <Sval> GREATER_THAN_EQUAL LESS_THAN_EQUAL GREATER_THAN LESS_THAN
+      |                                 ^~~~~~~~~~~~~~~
+yacc.y:46.49-60: warning: POSIX yacc reserves %type to nonterminals [-Wyacc]
+   46 | %type <Sval> GREATER_THAN_EQUAL LESS_THAN_EQUAL GREATER_THAN LESS_THAN
+      |                                                 ^~~~~~~~~~~~
+yacc.y:46.62-70: warning: POSIX yacc reserves %type to nonterminals [-Wyacc]
+   46 | %type <Sval> GREATER_THAN_EQUAL LESS_THAN_EQUAL GREATER_THAN LESS_THAN
+      |                                                              ^~~~~~~~~
+yacc.y:47.14-15: warning: POSIX yacc reserves %type to nonterminals [-Wyacc]
+   47 | %type <Sval> OR AND NOT NOT_EQUAL EQUAL
+      |              ^~
+yacc.y:47.17-19: warning: POSIX yacc reserves %type to nonterminals [-Wyacc]
+   47 | %type <Sval> OR AND NOT NOT_EQUAL EQUAL
+      |                 ^~~
+yacc.y:47.21-23: warning: POSIX yacc reserves %type to nonterminals [-Wyacc]
+   47 | %type <Sval> OR AND NOT NOT_EQUAL EQUAL
+      |                     ^~~
+yacc.y:47.25-33: warning: POSIX yacc reserves %type to nonterminals [-Wyacc]
+   47 | %type <Sval> OR AND NOT NOT_EQUAL EQUAL
+      |                         ^~~~~~~~~
+yacc.y:47.35-39: warning: POSIX yacc reserves %type to nonterminals [-Wyacc]
+   47 | %type <Sval> OR AND NOT NOT_EQUAL EQUAL
+      |                                   ^~~~~
+yacc.y:48.14-32: warning: POSIX yacc reserves %type to nonterminals [-Wyacc]
+   48 | %type <Sval> OP_FOR_TERNARY_EXPR
+      |              ^~~~~~~~~~~~~~~~~~~
+g++ main.cc definition.cc user-options.cc -o sclp
+definition.cc: In function ‘int get_level(AST*)’:
+definition.cc:311:1: warning: control reaches end of non-void function [-Wreturn-type]
+  311 | }
+      | ^
+definition.cc: In function ‘int get_label(AST*)’:
+definition.cc:326:1: warning: control reaches end of non-void function [-Wreturn-type]
+  326 | }
+      | ^
+cs316:Error111114
+cs316:Error111114
+cs316:Error111114
+cs316:Error111114
+cs316:Error111114
+cs316:Error11118
+cs316:Error111114
+cs316:Error11118
